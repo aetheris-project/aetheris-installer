@@ -1,11 +1,19 @@
 <p align="center">
-  <img src="assets/icon.svg" alt="Aetheris" width="80">
+  <img src="assets/icon.svg" alt="Aetheris" width="88">
 </p>
 
 <h1 align="center">Aetheris Installer</h1>
 
 <p align="center">
   <strong>Automated cross-platform installer for the Aetheris control plane</strong>
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&logoColor=white" alt="Python 3.10+">
+  <img src="https://img.shields.io/badge/Linux-macOS-Windows-2ea44f" alt="Linux / macOS / Windows">
+  <img src="https://img.shields.io/badge/Curses%20TUI-yes-18181B" alt="Curses TUI">
+  <img src="https://img.shields.io/badge/Emoji-free-by%20design-18181B" alt="Emoji-free">
+  <img src="https://img.shields.io/badge/tests-passing-success" alt="Tests passing">
 </p>
 
 ---
@@ -31,10 +39,78 @@ directory and contains no emoji.
 - Preflight checks for Python, Node.js and disk space with clear failures.
 - `--dry-run` prints every action without writing a single file.
 
-## Requirements
+## Installation
 
-- Python 3.10+
-- Node.js 20.x LTS (only when installing the web/app components)
+The installer itself has **no third-party runtime dependencies** - it is pure
+standard-library Python. You only need a Python 3.10+ interpreter, a virtual
+environment and the package installed in editable mode.
+
+### 1. Install Python 3.10+
+
+**Linux (Debian / Ubuntu):**
+
+```bash
+sudo apt update
+sudo apt install -y python3 python3-venv python3-pip
+python3 --version
+```
+
+**macOS (Homebrew):**
+
+```bash
+brew install python@3.12
+python3 --version
+```
+
+**Windows (winget or the official installer):**
+
+```powershell
+winget install Python.Python.3.12
+python --version
+```
+
+Verify the version is `3.10` or newer. On some systems the launcher is named
+`python3` instead of `python`; both work with the commands below.
+
+### 2. Create a virtual environment
+
+```bash
+# Linux / macOS
+python3 -m venv .venv
+source .venv/bin/activate
+
+# Windows (PowerShell)
+python -m venv .venv
+.venv\Scripts\activate
+```
+
+### 3. Install the package
+
+```bash
+pip install -e .
+```
+
+This installs the `aetheris-install` console script and the
+`python -m aetheris_installer` entry point. For tests, install pytest:
+
+```bash
+pip install pytest
+```
+
+### 4. Verify the installation
+
+```bash
+aetheris-install --help
+# or
+python -m aetheris_installer --help
+```
+
+You are ready for the quick start below.
+
+> Note: the dependencies **of the deployed platform** (Node.js packages, the
+> Python backend virtualenv, system packages) are installed by the installer
+> itself into the target directory during the `deps` step. You do not need to
+> prepare them manually.
 
 ## Quick start
 
