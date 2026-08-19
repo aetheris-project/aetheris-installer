@@ -1,0 +1,20 @@
+[project]
+name = "aetheris-installer"
+version = "1.0.0"
+description = "Automated cross-platform installer for the Aetheris control plane"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "Proprietary" }
+
+[project.scripts]
+aetheris-install = "aetheris_installer.cli:main"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["aetheris_installer*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
