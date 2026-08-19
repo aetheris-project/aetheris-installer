@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/icon.png" alt="Aetheris" width="80">
+  <img src="assets/icon.svg" alt="Aetheris" width="80">
 </p>
 
 <h1 align="center">Aetheris Installer</h1>
