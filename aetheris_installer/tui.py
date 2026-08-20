@@ -23,11 +23,11 @@ except ImportError:  # pragma: no cover - Windows Python builds
     curses = None  # type: ignore[assignment]
 
 TITLE = "Aetheris Installer"
-SUBTITLE = "Billing and virtualization control plane - automated setup"
+SUBTITLE = "Billing and virtualization control panel - automated setup"
 
 COMPONENT_KEYS = [
     ("with_website", "Website (marketing site and demo)"),
-    ("with_app", "App (control plane, billing, drivers)"),
+    ("with_app", "App (control panel, billing, drivers)"),
     ("with_backend", "Backend (Python REST API)"),
     ("with_docs", "Docs (Nextra wiki)"),
     ("with_services", "Services (systemd / launchd / Windows tasks)"),

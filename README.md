@@ -5,7 +5,7 @@
 <h1 align="center">Aetheris Installer</h1>
 
 <p align="center">
-  <strong>Automated cross-platform installer for the Aetheris control plane</strong>
+  <strong>Automated cross-platform installer for the Aetheris control panel</strong>
 </p>
 
 <p align="center">
@@ -19,7 +19,7 @@
 ---
 
 An archinstall-style terminal wizard and a fully scriptable non-interactive
-mode for deploying the Aetheris billing and virtualization control plane on
+mode for deploying the Aetheris billing and virtualization control panel on
 Linux, macOS and Windows.
 
 The installer creates the deployment layout, writes environment files, installs
@@ -35,7 +35,7 @@ directory and contains no emoji.
   environment variables configure everything else.
 - Native service generation: systemd units on Linux, launchd plist on macOS,
   Windows Task Scheduler registration plus start scripts.
-- Components: website, app (control plane), Python backend, docs.
+- Components: website, app (control panel), Python backend, docs.
 - Preflight checks for Python, Node.js and disk space with clear failures.
 - `--dry-run` prints every action without writing a single file.
 

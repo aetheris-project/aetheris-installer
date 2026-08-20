@@ -12,7 +12,7 @@ import sys
 from dataclasses import dataclass
 
 SYSTEMD_UNIT_WEB = """[Unit]
-Description=Aetheris control plane (Next.js)
+Description=Aetheris control panel (Next.js)
 After=network.target postgresql.service redis-server.service
 Wants=network.target
 
@@ -105,7 +105,7 @@ echo Starting Aetheris backend on port {backend_port}...
 
 WINDOWS_START_WEB = """@echo off
 cd /d {workdir}\\aetheris-app
-echo Starting Aetheris control plane on port {web_port}...
+echo Starting Aetheris control panel on port {web_port}...
 call npm run start
 """
 

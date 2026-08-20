@@ -23,7 +23,7 @@ from .tui import run_progress_screen, run_tui
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         prog="aetheris-install",
-        description="Automated cross-platform installer for the Aetheris control plane.",
+        description="Automated cross-platform installer for the Aetheris control panel.",
     )
     parser.add_argument("--version", action="version", version=f"aetheris-install {__version__}")
     parser.add_argument("--yes", action="store_true", help="run non-interactively with defaults")

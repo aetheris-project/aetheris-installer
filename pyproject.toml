@@ -1,7 +1,7 @@
 [project]
 name = "aetheris-installer"
 version = "1.0.0"
-description = "Automated cross-platform installer for the Aetheris control plane"
+description = "Automated cross-platform installer for the Aetheris control panel"
 readme = "README.md"
 requires-python = ">=3.10"
 license = { file = "LICENSE.md" }
