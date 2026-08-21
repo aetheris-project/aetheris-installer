@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/icon.svg" alt="Aetheris" width="88">
+  <img src="assets/icon.svg" alt="Aetheris Installer" width="88" style="filter: drop-shadow(0 0 20px rgba(16,185,129,0.5))">
 </p>
 
 <h1 align="center">Aetheris Installer</h1>
@@ -9,70 +9,87 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&logoColor=white" alt="Python 3.10+">
-  <img src="https://img.shields.io/badge/Linux-macOS-Windows-2ea44f" alt="Linux / macOS / Windows">
-  <img src="https://img.shields.io/badge/Curses%20TUI-yes-18181B" alt="Curses TUI">
-  <img src="https://img.shields.io/badge/Emoji-free-by%20design-18181B" alt="Emoji-free">
-  <img src="https://img.shields.io/badge/tests-passing-success" alt="Tests passing">
+  <a href="https://aetheris-docs.vercel.app/wiki/installer"><img src="https://img.shields.io/badge/Docs-Installer%20Guide-0EA5E9?style=for-the-badge&logo=readthedocs&logoColor=white" alt="Docs"></a>
+  <a href="https://aetheris-docs.vercel.app/wiki/installation"><img src="https://img.shields.io/badge/Walkthrough-Installation-F59E0B?style=for-the-badge&logo=linux&logoColor=white" alt="Walkthrough"></a>
+  <a href="https://discord.gg/6GcfebuT2A"><img src="https://img.shields.io/badge/Discord-Help-5865F2?style=for-the-badge&logo=discord&logoColor=white" alt="Discord"></a>
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Python-3.10%2B-3776AB?style=flat-square&logo=python&logoColor=white" alt="Python">
+  <img src="https://img.shields.io/badge/Linux-macOS--Windows-2ea44f?style=flat-square" alt="Cross-platform">
+  <img src="https://img.shields.io/badge/Curses%20TUI-Yes-18181B?style=flat-square" alt="Curses TUI">
+  <img src="https://img.shields.io/badge/Dependencies-Zero-10B981?style=flat-square" alt="Zero deps">
+  <img src="https://img.shields.io/badge/Emoji--free-By%20Design-181717?style=flat-square" alt="Emoji-free">
+  <img src="https://img.shields.io/badge/Tests-Passing-10B981?style=flat-square" alt="Tests">
 </p>
 
 ---
 
-An archinstall-style terminal wizard and a fully scriptable non-interactive
-mode for deploying the Aetheris billing and virtualization control panel on
-Linux, macOS and Windows.
+<br>
 
-The installer creates the deployment layout, writes environment files, installs
-dependencies, generates native service units for the detected operating system
-and verifies the result. It never touches anything outside its target
-directory and contains no emoji.
+> **archinstall-style terminal wizard** plus a fully scriptable `--yes`
+> non-interactive mode for deploying the Aetheris billing and virtualization
+> control panel on **Linux, macOS and Windows** from a single codebase.
+>
+> Creates the deployment layout, writes environment files, installs
+> dependencies, generates **native service units** for the detected OS and
+> verifies the result. **Zero third-party runtime dependencies** — pure
+> standard-library Python 3.10+.
 
-## Features
+<br>
 
-- Curses TUI wizard with arrow-key component selection (falls back to plain
-  prompts on terminals without curses).
-- Non-interactive mode: `--yes` runs every step with defaults; presets and
-  environment variables configure everything else.
-- Native service generation: systemd units on Linux, launchd plist on macOS,
-  Windows Task Scheduler registration plus start scripts.
-- Components: website, app (control panel), Python backend, docs.
-- Preflight checks for Python, Node.js and disk space with clear failures.
-- `--dry-run` prints every action without writing a single file.
+## ✨ Features
 
-## Installation
+<table>
+  <tr>
+    <td width="33%" align="center" valign="top">
+      <h3>🎯 Wizard</h3>
+      <p>Curses TUI with arrow-key component selection.<br>Falls back to plain prompts when curses is unavailable.</p>
+    </td>
+    <td width="33%" align="center" valign="top">
+      <h3>⚡ Headless</h3>
+      <p><code>--yes</code> runs every step with defaults.<br>Presets + environment variables configure the rest.</p>
+    </td>
+    <td width="33%" align="center" valign="top">
+      <h3>🔧 Native services</h3>
+      <p>
+        🐧 systemd units on Linux<br>
+        🍎 launchd plists on macOS<br>
+        🪟 Task Scheduler + start scripts on Windows
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td align="center" valign="top">
+      <h3>📦 Components</h3>
+      <p>Website · App (CP) · Python Backend · Docs wiki</p>
+    </td>
+    <td align="center" valign="top">
+      <h3>✅ Preflight checks</h3>
+      <p>Python version · Node.js version · Disk space<br>Clear actionable failures before any write</p>
+    </td>
+    <td align="center" valign="top">
+      <h3>🔬 Dry run</h3>
+      <p><code>--dry-run</code> prints every single action<br><em>without writing a single file.</em></p>
+    </td>
+  </tr>
+</table>
 
-The installer itself has **no third-party runtime dependencies** - it is pure
-standard-library Python. You only need a Python 3.10+ interpreter, a virtual
-environment and the package installed in editable mode.
+<br>
+
+## 🚀 Quick Start
 
 ### 1. Install Python 3.10+
 
-**Linux (Debian / Ubuntu):**
+<div align="center">
 
-```bash
-sudo apt update
-sudo apt install -y python3 python3-venv python3-pip
-python3 --version
-```
+| Linux | macOS | Windows |
+|---|---|---|
+| `sudo apt install -y python3 python3-venv python3-pip` | `brew install python@3.12` | `winget install Python.Python.3.12` |
 
-**macOS (Homebrew):**
+</div>
 
-```bash
-brew install python@3.12
-python3 --version
-```
-
-**Windows (winget or the official installer):**
-
-```powershell
-winget install Python.Python.3.12
-python --version
-```
-
-Verify the version is `3.10` or newer. On some systems the launcher is named
-`python3` instead of `python`; both work with the commands below.
-
-### 2. Create a virtual environment
+### 2. Set up the environment
 
 ```bash
 # Linux / macOS
@@ -84,67 +101,40 @@ python -m venv .venv
 .venv\Scripts\activate
 ```
 
-### 3. Install the package
+### 3. Install the installer
 
 ```bash
 pip install -e .
 ```
 
-This installs the `aetheris-install` console script and the
-`python -m aetheris_installer` entry point. For tests, install pytest:
+### 4. Run it
 
 ```bash
-pip install pytest
-```
-
-### 4. Verify the installation
-
-```bash
-aetheris-install --help
-# or
-python -m aetheris_installer --help
-```
-
-You are ready for the quick start below.
-
-> Note: the dependencies **of the deployed platform** (Node.js packages, the
-> Python backend virtualenv, system packages) are installed by the installer
-> itself into the target directory during the `deps` step. You do not need to
-> prepare them manually.
-
-## Quick start
-
-Interactive wizard:
-
-```bash
+# Interactive arrow-key wizard (recommended)
 python -m aetheris_installer
-```
 
-Non-interactive with defaults:
-
-```bash
+# Non-interactive default deployment
 python -m aetheris_installer --yes
-```
 
-Development preset:
-
-```bash
+# With preset
 python -m aetheris_installer --preset presets/dev.json --yes
-```
 
-Dry run (prints actions, writes nothing):
-
-```bash
+# Preview actions, write nothing
 python -m aetheris_installer --yes --dry-run
+
+# Verify it works
+aetheris-install --help
 ```
 
-## Options
+<br>
+
+## 🎛️ Options Reference
 
 | Flag | Effect |
-| --- | --- |
+|---|---|
 | `--yes` | Run non-interactively with defaults |
 | `--preset PATH` | Load a JSON preset file |
-| `--target DIR` | Deployment directory (default `./aetheris-deploy`) |
+| `--target DIR` | Deployment directory (default: `./aetheris-deploy`) |
 | `--web-port N` | Web server port |
 | `--backend-port N` | Backend API port |
 | `--admin-email` / `--admin-password` | Superadmin credentials |
@@ -152,59 +142,37 @@ python -m aetheris_installer --yes --dry-run
 | `--skip-checks` | Skip preflight checks |
 | `--skip-deps` | Skip dependency installation |
 | `--no-services` | Do not write service files |
-| `--no-app` / `--no-backend` / `--no-website` | Component selection |
+| `--no-app` / `--no-backend` / `--no-website` | Deselect components |
 
-Every config field can also be set through an environment variable using the
-`AETHERIS_INSTALL_` prefix, for example `AETHERIS_INSTALL_WEB_PORT=5555`.
+Every config field is also settable through `AETHERIS_INSTALL_*`
+environment variables, e.g. `AETHERIS_INSTALL_WEB_PORT=5555`.
 
-## Presets
+<br>
 
-Presets are JSON files mapping any `InstallConfig` field:
+## 📦 What It Writes
 
-```json
-{
-  "target_dir": "./aetheris-deploy",
-  "with_website": true,
-  "with_app": true,
-  "with_backend": true,
-  "web_port": 3000,
-  "backend_port": 8000,
-  "admin_email": "admin@example.com"
-}
-```
-
-## What it writes
-
-```
+```text
 aetheris-deploy/
 ├── aetheris-app/
-│   ├── .env                      # app environment
+│   ├── .env                      # App environment
 │   └── backend/
-│       ├── .env                  # backend environment
+│       ├── .env                  # Backend environment
 │       └── .venv/                # Python virtual environment
-├── aetheris-website/             # website checkout
-├── aetheris-docs/                # docs checkout (optional)
+├── aetheris-website/             # Website checkout
+├── aetheris-docs/                # Docs wiki checkout (optional)
 └── deploy/
-    ├── aetheris-web.service      # Linux: systemd units
+    ├── aetheris-web.service      # 🐧 Linux: systemd units
     ├── aetheris-worker.service
     ├── aetheris-backend.service
-    ├── com.aetheris.backend.plist   # macOS: launchd
-    ├── start-backend.bat            # Windows: start scripts
+    ├── com.aetheris.backend.plist   # 🍎 macOS: launchd
+    ├── start-backend.bat           # 🪟 Windows: start scripts
     ├── start-web.bat
     └── register-schtasks.cmd
 ```
 
-## Tests
+<br>
 
-```bash
-python -m pip install pytest
-python -m pytest -q
-```
-
-The suite covers config building, presets, environment overrides, service file
-generation for all three operating systems and dry-run step behavior.
-
-## Repository layout
+## 🧩 Repository Layout
 
 ```text
 aetheris-installer/
@@ -212,14 +180,48 @@ aetheris-installer/
 │   ├── cli.py            # argparse entry point
 │   ├── config.py         # InstallConfig, presets, env overrides
 │   ├── platform.py       # OS detection + service generation
-│   ├── steps.py          # install steps
-│   ├── tui.py            # curses wizard (archinstall style)
-│   ├── ui.py             # prompt fallback for non-curses terminals
+│   ├── steps.py          # Preflight → layout → env → deps → services
+│   ├── tui.py            # Curses wizard (archinstall-style)
+│   ├── ui.py             # Prompt fallback (non-curses terminals)
 │   └── __main__.py
-├── presets/dev.json      # development preset
-└── tests/                # unit tests
+├── presets/dev.json      # Development preset example
+├── tests/                # Config, presets, services, dry-run tests
+└── pyproject.toml
 ```
 
-## License
+<br>
 
-Aetheris is licensed under the [GNU Affero General Public License v3.0](LICENSE.md) (AGPL-3.0). You may use, study, modify and redistribute it for any purpose, provided that any distributed or network-served modified version keeps this license, preserves the copyright notice of the original author (Leonardo Galli / Leo-Galli) and releases its source code under AGPL-3.0. The Aetheris core and the author's credit may not be removed.
+## 🧪 Tests
+
+```bash
+python -m pip install pytest
+python -m pytest -q
+```
+
+Suite covers:
+- Config building + presets + environment overrides
+- Service file generation (all 3 OSes)
+- Dry-run step behavior
+
+---
+
+<p align="center">
+  <strong>Made with 💚 by <a href="https://github.com/Leo-Galli">Leonardo Galli</a></strong>
+</p>
+
+<p align="center">
+  <a href="https://github.com/aetheris-project/aetheris-app">App</a>
+  ·
+  <a href="https://github.com/aetheris-project/aetheris-docs">Docs</a>
+  ·
+  <a href="https://github.com/aetheris-project/aetheris-windows-installer">Windows Installer</a>
+  ·
+  <a href="https://discord.gg/6GcfebuT2A">Discord</a>
+  ·
+  <a href="https://paypal.me/LeonardoGalliITA">Donate</a>
+</p>
+
+## 📄 License
+
+Licensed under **GNU Affero General Public License v3.0 (AGPL-3.0)**.
+See [LICENSE.md](LICENSE.md).
